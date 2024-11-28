@@ -4,43 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        .btn {
-            padding: 5px 10px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-        .btn-edit {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .btn-delete {
-            background-color: #f44336;
-            color: white;
-        }
-        .btn-create {
-            background-color: #007BFF;
-            color: white;
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Gestión de Usuarios</h1>
-
-    <button class="btn btn-create" onclick="crearUsuario()">Crear Usuario</button>
+    <header> 
+        <h1>Gestión de Usuarios</h1> 
+        <button class="btn btn-create" onclick="mostrarModal('create')">Crear Usuario</button>
+    </header>
+    
 
     <table id="user-table">
         <thead>
@@ -55,6 +26,20 @@
             <!-- Usuarios cargados dinámicamente -->
         </tbody>
     </table>
+
+    <!-- Modal y overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+        <div class="modal-header" id="modal-header">Modal</div>
+        <div class="modal-body">
+            <input type="text" id="modal-name" placeholder="Nombre">
+            <input type="password" id="modal-password" placeholder="Contraseña">
+        </div>
+        <div class="modal-footer">
+            <button id="modal-confirmar" onclick="confirmarAccion()">Confirmar</button>
+            <button onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>
